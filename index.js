@@ -46,6 +46,9 @@ ExpressBrute.prototype.getMiddleware = function (options) {
 	return _.bind(function (req, res, next) {
 		keyFunc(req, res, _.bind(function (key) {
 			if(!options.ignoreIP) {
+				console.log("GURU inside bind ip=", req.ip);
+				console.log("GURU inside bind this.name=", this.name);
+				console.log("GURU inside bind key=", key);
 				key = ExpressBrute._getKey([req.ip, this.name, key]);
 			} else {
 				key = ExpressBrute._getKey([this.name, key]);
